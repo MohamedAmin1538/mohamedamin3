@@ -1,0 +1,258 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+body{
+    font-family: 'Kanit', sans-serif;
+}
+header{
+    height: 100px;
+    width: 100%;
+    background-color:rgba(0,0, 0, .5);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5%;
+    position: fixed;
+    z-index: 5;
+    box-shadow: 0px 4px 10px 1px black;
+}
+header h2{
+    font-size: 1.9rem;
+    transform: scaleY(1.4);
+    color: #fff;
+    z-index: -10;
+}
+
+h2 span{
+    font-weight: 600;
+}
+nav{
+   
+    
+}
+nav ul{
+    position: absolute;
+    list-style: none;
+    display: flex;
+    opacity: 0;
+    visibility: hidden;
+    background-color: #000;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 0vh;
+    top: 0%;
+    width: 50%;
+    right: 0;
+    z-index: -1;
+    transition: height 1s;
+    transform: skewx(0deg);
+
+}
+header nav:hover ul{
+    opacity: 1;
+    visibility: visible;
+    height: 100vh;
+}
+nav ul li{
+    width: 100%;
+}
+ul li a{
+    text-decoration: none;
+    color: #fff;
+    display: block;
+    text-transform: capitalize;
+    font-size: 1.4rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+    position: relative;
+    z-index: 100;
+    transition: color 1s .5s;
+}
+ul li a:hover{
+    color: #000;
+}
+ul li a::after{
+    content:"";
+    position: absolute;
+    right: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: red;
+    z-index: -11;
+    transition: right 1s , border-top-left-radius 2s , border-bottom-left-radius 2s;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+
+}
+ul li a:hover::after{
+    right: 0;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 50px;
+
+}
+
+header nav >span{
+    font-size: 2.2rem !important;
+    border: #fff solid 2px;
+    color: #fff;
+    padding: 5px 8px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: transform 1s;
+}
+header nav >span:hover{
+    transform: rotate(-90deg);
+}
+header nav:focus ul{
+    visibility: hidden;
+}
+main{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+main div:first-child{
+    position:absolute;
+    width: 100%;
+    height: 50%;
+    z-index: 1;
+    left: 0;
+    top: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #fff;
+
+}
+
+@media screen and (min-width: 768px) {
+    main div:first-child{
+        top:40%;
+    }
+}
+main div:last-child{
+    width: 100%;
+    height: 100vh;
+}
+main div:last-child video{
+    object-fit: cover;
+    height: 100vh;
+    width: 100%;
+    filter: brightness(50%);
+
+}
+main div:first-child h1{
+    font-size: 3.9rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    text-align: center;
+}
+main div:first-child h2{
+    font-size: 3rem;
+    text-transform: uppercase;
+    font-weight: 200;
+
+}
+@media screen and (min-width:1024px) {
+    header h2{
+         font-size: 3rem;
+     }
+     main div:first-child h1{
+         font-size: 5rem;
+     }
+     main div:first-child h2{
+         font-size: 3.8rem;
+     }
+ }
+
+main div:first-child a{
+    color: #fff;
+}
+main div:first-child i{
+    margin-top: 100%;
+    font-size: 2rem;
+    font-weight: 900;
+    transform: scale(1.5 ,1.1);
+    border: 1px solid white;
+    padding: 10px 12PX;
+    background-color: rgba(107, 103, 103, 0.5);
+    border-radius: 50%;
+    
+}
+.items{
+    width: 100%;
+    background-color: #333;
+    padding: 20px 0;
+}
+.container-items{
+    height: 100%;
+    margin: 10px auto;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.container-items div{
+    height: 250px;
+    margin-bottom: 15px;
+    position: relative;
+}
+.container-items img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.container-items div h3{
+    position: absolute;
+    z-index: 50;
+    bottom: -2%;
+    left: 2%;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 22px;
+    letter-spacing: .5px;
+    cursor: pointer;
+    visibility: hidden;
+    opacity: 0;
+    transition: all .5s;
+
+}
+.container-items div:hover h3{
+    opacity: 1;
+    visibility: visible;
+    bottom: 5%;
+}
+.container-items div h3 span{
+    font-weight: 400;
+}
+@media screen and (min-width:768px ) {
+    .container-items{
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        
+    }
+    .container-items div{
+        width: 46%;
+    }
+    
+}
+@media screen and (min-width:1024px){
+    .container-items{
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        
+    }
+    .container-items div{
+        width: 30%;
+    }
+    
+}
